@@ -52,7 +52,8 @@ namespace BigSchool.Controllers
         }
         public ActionResult Mine()
         {
-            ApplicationUser currentUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            ApplicationUser currentUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.
+                                                                                                           HttpContext.Current.User.Identity.GetUserId());
             BigSchoolContext db = new BigSchoolContext();
             var courses = db.Courses.Where(c => c.LecturerId == currentUser.Id && c.DateTime > DateTime.Now).ToList();
             foreach (Course i in courses)
@@ -121,7 +122,7 @@ namespace BigSchool.Controllers
         {
             if (disposing)
             {
-                context.Dispose();
+               context.Dispose();
             }
             base.Dispose(disposing);
         }
